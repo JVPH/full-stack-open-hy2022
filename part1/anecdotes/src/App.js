@@ -6,15 +6,12 @@ const Button = ({ onClick, text }) => {
   );
 };
 
-const Display = ({ value }) => {
+const Anecdote = ({ text, value }) => {
   return (
-    <p>{value}</p>
-  )
-};
-
-const Anecdote = ({ text }) => {
-  return (
-    <i>{text}</i>
+    <>
+      <i>{text}</i>
+      <p>{value}</p>
+    </>
   );
 };
 
@@ -66,19 +63,16 @@ const App = () => {
       value,
       text,
     };
-  })();
-  
+  })();  
   
   return (
     <div>
       <Heading text='Anecdote of the day' />
-      <Anecdote text={anecdotes[selected]}/>
-      <Display value={points[selected]} />
+      <Anecdote text={anecdotes[selected]} value={points[selected]}/>      
       <Button onClick={voteBtnHandler} text='vote' />
       <Button onClick={nextAnecdoteBtnHandler} text='next anecdote' />
       <Heading text='Anecdote with most votes' />
-      <Anecdote text={anecdotes[mostVotes.text()]} />
-      <Display value={mostVotes.value()} />       
+      <Anecdote text={anecdotes[mostVotes.text()]} value={mostVotes.value()}/>      
     </div>
   );
 
