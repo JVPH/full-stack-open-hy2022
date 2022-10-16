@@ -65,9 +65,9 @@ const App = () => {
     setBad(bad+1);
   };
 
-  const nOfAllClicks = good+bad+neutral;
+  const totalClicks = good+bad+neutral;
 
-  if(nOfAllClicks===0){
+  if(totalClicks===0){
     return (
       <div>
         <Heading text='give feedback'/>  
